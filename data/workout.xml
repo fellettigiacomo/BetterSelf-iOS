@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workout>
+  <section>
+    <name>Scheda A</name>
+    <muscleGroup>Petto</muscleGroup>
+    <exercises>
+      <exercise>
+        <name>Chest press</name>
+        <sets>1</sets>
+        <reps>12/10/8/6</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>35</weight>
+        <machine>Chest Press</machine>
+        <rest>60</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Croci panca inc.</name>
+        <sets>4</sets>
+        <reps>6</reps>
+        <timeUnderTension>3</timeUnderTension>
+        <weight>7</weight>
+        <machine>Panca</machine>
+        <rest>60</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Dist. B. Panca Piana</name>
+        <sets>4</sets>
+        <reps>5</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>20</weight>
+        <machine>MultiPower</machine>
+        <rest>60</rest>
+        <comment>lento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Piegamenti</name>
+        <sets>1</sets>
+        <reps>50</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>0</weight>
+        <machine>None</machine>
+        <rest>0</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Dist. Manubri P. Inc.</name>
+        <sets>1</sets>
+        <reps>6/8/10/12</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>10</weight>
+        <machine>Panca</machine>
+        <rest>60</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Chest Press P.V.</name>
+        <sets>3</sets>
+        <reps>6x6x6</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>35</weight>
+        <machine>Chest Press</machine>
+        <rest>60</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Leg Extention</name>
+        <sets>4</sets>
+        <reps>5x5xMAX</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>40</weight>
+        <machine>Leg Extention</machine>
+        <rest>90</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+      <exercise>
+        <name>Leg Press</name>
+        <sets>1</sets>
+        <reps>12/10/8/6</reps>
+        <timeUnderTension>0</timeUnderTension>
+        <weight>60</weight>
+        <machine>Leg Press</machine>
+        <rest>90</rest>
+        <comment>commento</comment>
+        <gifPath></gifPath>
+      </exercise>
+    </exercises>
+  </section>
+  <section>
+    <name>Scheda B</name>
+    <muscleGroup>Braccia</muscleGroup>
+    <exercises>
+      <exercise>
+        <name>Esercizio di Esempio</name>
+        <sets>3</sets>
+        <reps>12</reps>
+        <timeUnderTension>45</timeUnderTension>
+        <weight>100.0</weight>
+        <machine>None</machine>
+        <rest>60</rest>
+        <comment>Focus on form</comment>
+        <gifPath>squat.gif</gifPath>
+      </exercise>
+    </exercises>
+  </section>
+  <section>
+    <name>Scheda C</name>
+    <muscleGroup>Schiena</muscleGroup>
+    <exercises>
+      <exercise>
+        <name>Esercizio di Esempio</name>
+        <sets>3</sets>
+        <reps>12</reps>
+        <timeUnderTension>45</timeUnderTension>
+        <weight>100.0</weight>
+        <machine>None</machine>
+        <rest>60</rest>
+        <comment>Focus on form</comment>
+        <gifPath>squat.gif</gifPath>
+      </exercise>
+    </exercises>
+  </section>
+  <section>
+    <name>Scheda D</name>
+    <muscleGroup>Spalle</muscleGroup>
+    <exercises>
+      <exercise>
+        <name>Esercizio di Esempio</name>
+        <sets>3</sets>
+        <reps>12</reps>
+        <timeUnderTension>45</timeUnderTension>
+        <weight>100.0</weight>
+        <machine>None</machine>
+        <rest>60</rest>
+        <comment>Focus on form</comment>
+        <gifPath>squat.gif</gifPath>
+      </exercise>
+    </exercises>
+  </section>
+</workout>
+
