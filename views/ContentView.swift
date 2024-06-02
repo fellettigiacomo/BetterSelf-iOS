@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // La tua "toolbar" personalizzata
                 HStack {
                     VStack(alignment: .leading) {
                         Text("BetterSelf")
