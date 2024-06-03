@@ -1,13 +1,6 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from betterself.models import Workout, Section, Exercise
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('username', 'email')
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
@@ -25,9 +18,13 @@ class SectionSerializer(serializers.ModelSerializer):
 
 
 class WorkoutSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
     sections = SectionSerializer(many=True)
 
     class Meta:
         model = Workout
-        fields = ('id', 'user', 'sections')
+        fields = ('id', 'sections')
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField(max_length=255)
+    password = serializers.CharField(write_only=True)
