@@ -12,78 +12,75 @@ class Shared: ObservableObject {
 }
 
 struct loginView: View {
-  @StateObject private var shared = Shared()
+  @EnvironmentObject var shared: Shared
   @State private var username: String = ""
   @State private var isAuthenticated = false
   @State private var password: String = ""
   @State private var showingAlert = false
   @State private var alertMessage = ""
-  private var apiEndpoint = "http://api.springmc.net/v1/login"
-  //public var apiEndpoint = "https://jsonplaceholder.typicode.com/users"
+  private var apiEndpoint = "https://api.springmc.net/v1/login/"
 
   var body: some View {
-    VStack {
-      Spacer().frame(height: 50)
-
-      Text("Welcome back!")
-        .font(.largeTitle)
-        .padding()
-      Text("BetterSelf - branch tpsit-project")
-
-      Spacer()
-
-      TextField("Username", text: $username)
-        .textFieldStyle(RoundedBorderTextFieldStyle())
-        .padding(.horizontal)
-        .frame(maxWidth: 350)
-
-      SecureField("Password", text: $password)
-        .textFieldStyle(RoundedBorderTextFieldStyle())
-        .padding(.horizontal)
-        .frame(maxWidth: 350)
-
-      Spacer()
-
-      Button(action: {
-        login(username: username, password: password) { (result) in
-          switch result {
-          case .success(let token):
-            // if login returns success, then change view and set token in the observable object
-            self.shared.token = token
-            print(token)
-            self.isAuthenticated = true
-
-          case .failure(let error):
-            self.alertMessage = error.localizedDescription
-            self.showingAlert = true
+          VStack {
+              Spacer().frame(height: 50)
+              
+              Text("Welcome back!")
+                  .font(.largeTitle)
+                  .padding()
+              Text("BetterSelf - branch tpsit-project")
+              
+              Spacer()
+              
+              TextField("Username", text: $username)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  .padding(.horizontal)
+                  .frame(maxWidth: 350)
+              
+              SecureField("Password", text: $password)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  .padding(.horizontal)
+                  .frame(maxWidth: 350)
+              
+              Spacer()
+              
+              Button(action: {
+                  login(username: username, password: password) { (result) in
+                      switch result {
+                      case .success(let token):
+                          // if login returns success, then change view and set token in the observable object
+                          self.shared.token = token
+                          print(shared.token!)
+                          self.isAuthenticated = true
+                          
+                      case .failure(let error):
+                          self.alertMessage = error.localizedDescription
+                          self.showingAlert = true
+                      }
+                  }
+              }) {
+                  Text("Login")
+                      .font(.headline)
+                      .foregroundColor(.white)
+                      .padding()
+                      .frame(width: 200, height: 50)
+                      .background(Color.blue)
+                      .cornerRadius(10)
+              }
+              .alert(isPresented: $showingAlert) {
+                  Alert(
+                    title: Text("Login Error"), message: Text(alertMessage),
+                    dismissButton: .default(Text("OK")))
+              }
+              .padding()
+              
+              // navigate (or at least try) to next view
+              if let token = shared.token {
+                  Text("Token: \(token)")
+                      .padding()
+              }
+              
+              Spacer().frame(height: 50)
           }
-        }
-      }) {
-        Text("Login")
-          .font(.headline)
-          .foregroundColor(.white)
-          .padding()
-          .frame(width: 200, height: 50)
-          .background(Color.blue)
-          .cornerRadius(10)
-      }
-      .alert(isPresented: $showingAlert) {
-        Alert(
-          title: Text("Login Error"), message: Text(alertMessage),
-          dismissButton: .default(Text("OK")))
-      }
-      .padding()
-      .navigationDestination(isPresented: $isAuthenticated) {
-        ContentView()
-      }
-
-      if let token = shared.token {
-        Text("Token: \(token)")
-          .padding()
-      }
-
-      Spacer().frame(height: 50)
-    }
   }
 
   func login(
@@ -115,6 +112,7 @@ struct loginView: View {
     let session = URLSession.shared
     let task: URLSessionDataTask = session.dataTask(with: request) { data, response, error in
 
+        print(response)
       // check response
       guard let httpResponse = response as? HTTPURLResponse,
         (200...299).contains(httpResponse.statusCode)

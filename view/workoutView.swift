@@ -170,9 +170,9 @@ struct workoutView: View {
   }
 }
 
-struct WorkoutView_Previews: PreviewProvider {
-  static var previews: some View {
-    let flMgr = WorkoutParser()
-    workoutView(currentSection: flMgr.parseXML()[0])
-  }
-}
+//struct WorkoutView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    //let flMgr = WorkoutParser()
+//    //workoutView(currentSection: flMgr.parseXML()[0])
+//  }
+//}

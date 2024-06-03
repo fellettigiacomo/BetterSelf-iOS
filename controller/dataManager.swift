@@ -8,7 +8,7 @@
 import Foundation
 
 let filePath = "/data/workout.json"
-private var apiEndpoint = "http://api.springmc.net/v1/workouts"
+private var apiEndpoint = "https://api.springmc.net/v1/workouts"
 
 func saveJSONToFile(json: [String: Any]) {
     do {

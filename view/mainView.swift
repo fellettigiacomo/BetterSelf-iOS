@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var sections: [Section] = []
     @State private var showingDeleteAlert = false
     @State private var deleteIndexSet: IndexSet?
+    @EnvironmentObject var shared: Shared
 
     var body: some View {
         NavigationView {
@@ -38,8 +39,7 @@ struct ContentView: View {
                 }
                 .onAppear {
                     // load data from web service
-                    let dataMgr = dataManager()
-                    dataMgr.getWorkout()
+                    getWorkout(token: shared.token!){ (result) in}
                 }
             }
             .alert(isPresented: $showingDeleteAlert) {
