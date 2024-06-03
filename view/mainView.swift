@@ -19,7 +19,7 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         Text("BetterSelf")
                             .font(.title).bold()
-                        Text("I miei workout")
+                        Text("My workouts")
                     }
                     Spacer()
                     NavigationLink(destination: newView()) {
@@ -37,14 +37,15 @@ struct ContentView: View {
                     .onDelete(perform: deleteSectionPopUp)
                 }
                 .onAppear {
-                    let flMgr = WorkoutParser()
-                    sections = flMgr.parseXML()
+                    // load data from web service
+                    let dataMgr = dataManager()
+                    dataMgr.getWorkout()
                 }
             }
             .alert(isPresented: $showingDeleteAlert) {
-                Alert(title: Text("Conferma eliminazione"),
-                      message: Text("Sei sicuro di voler eliminare questa sezione?"),
-                      primaryButton: .destructive(Text("Elimina")) {
+                Alert(title: Text("Delete section"),
+                      message: Text("Are you sure that you want to delete this section?"),
+                      primaryButton: .destructive(Text("Delete")) {
                           deleteSection()
                       },
                       secondaryButton: .cancel())
