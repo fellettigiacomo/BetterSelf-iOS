@@ -19,7 +19,6 @@
 		04996A6F2C0D158500783CF3 /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996A692C0D158500783CF3 /* detailView.swift */; };
 		04996A702C0D158500783CF3 /* sectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996A6A2C0D158500783CF3 /* sectionView.swift */; };
 		04996A742C0D158500783CF3 /* workoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996A662C0D158500783CF3 /* workoutView.swift */; };
-		04996A7B2C0D198C00783CF3 /* workout.xml in Resources */ = {isa = PBXBuildFile; fileRef = 04996A7A2C0D198C00783CF3 /* workout.xml */; };
 		04996A7D2C0D1A2B00783CF3 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04996A7C2C0D1A2B00783CF3 /* loginView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		04996A692C0D158500783CF3 /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
 		04996A6A2C0D158500783CF3 /* sectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionView.swift; sourceTree = "<group>"; };
 		04996A6B2C0D158500783CF3 /* editView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editView.swift; sourceTree = "<group>"; };
-		04996A7A2C0D198C00783CF3 /* workout.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = workout.xml; sourceTree = "<group>"; };
 		04996A7C2C0D1A2B00783CF3 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,13 +87,12 @@
 		04996A302C0D14FB00783CF3 /* betterself */ = {
 			isa = PBXGroup;
 			children = (
-				04996A632C0D158500783CF3 /* data */,
+				046467332C0E59AB00B873C6 /* model */,
 				04996A652C0D158500783CF3 /* view */,
+				046467362C0E59C100B873C6 /* controller */,
 				04996A5F2C0D158400783CF3 /* Assets.xcassets */,
 				04996A312C0D14FB00783CF3 /* betterselfApp.swift */,
 				04996A352C0D14FD00783CF3 /* Assets.xcassets */,
-				046467362C0E59C100B873C6 /* controller */,
-				046467332C0E59AB00B873C6 /* model */,
 				04996A372C0D14FD00783CF3 /* Preview Content */,
 			);
 			path = betterself;
@@ -107,14 +104,6 @@
 				04996A382C0D14FD00783CF3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		04996A632C0D158500783CF3 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				04996A7A2C0D198C00783CF3 /* workout.xml */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		04996A652C0D158500783CF3 /* view */ = {
@@ -189,7 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04996A7B2C0D198C00783CF3 /* workout.xml in Resources */,
 				04996A392C0D14FD00783CF3 /* Preview Assets.xcassets in Resources */,
 				04996A362C0D14FD00783CF3 /* Assets.xcassets in Resources */,
 			);

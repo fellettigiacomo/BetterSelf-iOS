@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @State private var sections: [Section] = []
     @State private var showingDeleteAlert = false
     @State private var deleteIndexSet: IndexSet?
@@ -39,7 +39,14 @@ struct ContentView: View {
                 }
                 .onAppear {
                     // load data from web service
-                    getWorkout(token: shared.token!){ (result) in}
+                    getWorkoutData(token: shared.token!) { result in
+                      switch result {
+                      case .success(let sections2):
+                      sections = sections2
+                      case .failure(let error):
+                        print("error getting workouts: \(error)")
+                      }
+                    }
                 }
             }
             .alert(isPresented: $showingDeleteAlert) {
@@ -68,6 +75,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
