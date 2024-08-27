@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @State private var sections: [Section] = []
     @State private var showingDeleteAlert = false
     @State private var deleteIndexSet: IndexSet?
+    @EnvironmentObject var shared: Shared
 
     var body: some View {
         NavigationView {
             VStack {
-                // La tua "toolbar" personalizzata
                 HStack {
                     VStack(alignment: .leading) {
                         Text("BetterSelf")
                             .font(.title).bold()
-                        Text("I miei workout")
+                        Text("My workouts")
                     }
                     Spacer()
                     NavigationLink(destination: newView()) {
@@ -38,14 +38,21 @@ struct ContentView: View {
                     .onDelete(perform: deleteSectionPopUp)
                 }
                 .onAppear {
-                    let flMgr = WorkoutParser()
-                    sections = flMgr.parseXML()
+                    // load data from web service
+                    getWorkoutData(token: shared.token!) { result in
+                      switch result {
+                      case .success(let sections2):
+                      sections = sections2
+                      case .failure(let error):
+                        print("error getting workouts: \(error)")
+                      }
+                    }
                 }
             }
             .alert(isPresented: $showingDeleteAlert) {
-                Alert(title: Text("Conferma eliminazione"),
-                      message: Text("Sei sicuro di voler eliminare questa sezione?"),
-                      primaryButton: .destructive(Text("Elimina")) {
+                Alert(title: Text("Delete section"),
+                      message: Text("Are you sure that you want to delete this section?"),
+                      primaryButton: .destructive(Text("Delete")) {
                           deleteSection()
                       },
                       secondaryButton: .cancel())
@@ -68,6 +75,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
